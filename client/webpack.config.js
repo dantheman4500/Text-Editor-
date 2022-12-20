@@ -8,32 +8,27 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js',
-      //database: './src/js/database.js'
+      install: './src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      // Adding Webpack plugin to generate HTML and inject our bundles
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'JATE'
+        title: 'J.A.T.E'
       }),
-      // TODO: Add and configure workbox plugins for a service worker and manifest file.
-      // service worker
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
-      // manifest.json
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'text-editor',
-        short_name: 'JATE',
-        description: 'Just Another Text Editor!',
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
+        description: 'Takes notes with JavaScript syntax highlighting!',
         background_color: '#225ca3',
         theme_color: '#225ca3',
         start_url: '/',
@@ -49,7 +44,6 @@ module.exports = () => {
     ],
 
     module: {
-      // TODO: Add CSS loaders and babel to webpack.
       rules: [
         {
           test: /\.css$/i,
@@ -62,7 +56,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime']
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
           },
         },
