@@ -2,7 +2,7 @@
   "name": "texteditor",
   "version": "1.0.0",
   "engines:": {
-    "node": "14.17.3",
+    "node": "18.12.1",
     "npm": "6.14.13"
   },
   "description": "",
@@ -19,8 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "if-env": "^1.0.4"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
